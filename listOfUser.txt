@@ -1,0 +1,7 @@
+username:lethianhthao
+password:12345
+staff
+
+username:vothinhphat
+password:12345
+student
