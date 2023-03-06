@@ -16,24 +16,18 @@ void login(){
     string check;
     bool find = false;
     while (!find && in >> check){ //check if username exists or not
-        if (check[0] == 'u' && user.length() == check.length() - 9){ //since "user:..." starts with 'u'
-            find = true;
-            for (int i = 9 ; i < check.length() ; i++){
-                if (check[i] != user[i - 9]){
-                    find = false;
-                    break;
-                }
-            }
-        }
+        if (check == user) find = true;
     }
 
-    string read_pass, check_pass = ""; //check if password is right or wrong
-    in >> read_pass;
-    for (int i = 9 ; i < read_pass.length() ; i++) check_pass += read_pass[i];
-    in.close();
-    while (check_pass != pass){
-        cout << "Your password is not correct. Try again : ";
-        cin >> pass;
+    if (!find) cout << "Your username does not exist";
+    else{
+        string check_pass; //check if password is right or wrong
+        in >> check_pass;
+        in.close();
+        while (check_pass != pass){
+            cout << "Your password is not correct. Try again : ";
+            cin >> pass;
+        }
+        cout << "Login successfully !";
     }
-    cout << "Login successfully !";
 }
